@@ -15,22 +15,22 @@ public class Real extends Featurefilm{
 		year=year1;
 	}
 //--------------------------------------------	
-	public void setTitle(String title1) {
-		title=title1;
+	public void setTitle(String title) {
+		this.title=title;
 	}
 	public String getTitle() {
 		return title;
 	}
 //-----------------------------------------	
-	public void setYear(int year1) {
-		year=year1;
+	public void setYear(int year) {
+		this.year=year;
 	}
 	public int getYear() {
 		return year;
 	}
 //------------------------------------------	
-	public void setEvent(String event1) {
-		event=event1;
+	public void setEvent(String event) {
+		this.event=event;
 	}
 	public String getEvent() {
 		return event;

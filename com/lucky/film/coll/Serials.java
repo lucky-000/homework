@@ -1,6 +1,6 @@
 package com.lucky.film.coll;
 
-public class Serials extends Film{
+public class Serials implements Film{
 	private String title;
 	private int year;
 	private int nseason;
@@ -15,30 +15,30 @@ public class Serials extends Film{
 		year=year1;
 	}
 //--------------------------------------------	
-	public void setTitle(String title1) {
-		title=title1;
+	public void setTitle(String title) {
+		this.title=title;
 	}
 	public String getTitle() {
 		return title;
 	}
 //-----------------------------------------	
-	public void setYear(int year1) {
-		year=year1;
+	public void setYear(int year) {
+		this.year=year;
 	}
 	public int getYear() {
 		return year;
 	}
 //------------------------------------------	
-	public void setNseason(int nseason1) {
-		nseason=nseason1;
+	public void setNseason(int nseason) {
+		this.nseason=nseason;
 	}
 	public int getNseason() {
 		return nseason;
 	}
 //	---------------------------------------
 	
-	public void setNseries(int nseries1) {
-		nseries=nseries1;
+	public void setNseries(int nseries) {
+		this.nseries=nseries;
 	}
 	public int getNseries() {
 		return nseries;
@@ -50,5 +50,11 @@ public class Serials extends Film{
 	       System.out.println("Number of season = "+nseason);
 	       System.out.println("Number of series = "+nseries);
 	   }
+
+	@Override
+	public void printTitle() {
+		System.out.println("Film title = "+title);
+		
+	}
 	
 }
