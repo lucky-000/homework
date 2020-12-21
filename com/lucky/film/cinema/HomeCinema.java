@@ -1,9 +1,12 @@
 package com.lucky.film.cinema;
 
+import com.lucky.film.coll.Serials;
+
 public class HomeCinema extends Cinema {
 	private String adress;
-//	private String title;
-
+	
+	private Serials content;
+	
 
 	public HomeCinema() {
 
@@ -21,10 +24,20 @@ public class HomeCinema extends Cinema {
 	public String getAdress() {
 		return adress;
 	}
+	public Serials addSerials(Serials serial) {
+		this.content=serial;
+		return this.content;
+	}
+	public void printSpectator() {
+		System.out.println("family");
+	}
+	
 	public void printFields(){
 		System.out.println("Title cinema = " + getTitle());
 	       System.out.println("URL Online Cinema = " + adress);
-
+	       System.out.println(this.content.getTitle());
+	       System.out.println(this.content.getNseason());
+	       System.out.println(this.content.getNseries());
 	   }
 	@Override
 	public void printInfo() {

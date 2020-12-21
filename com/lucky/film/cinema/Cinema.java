@@ -19,6 +19,10 @@ public abstract class Cinema {
 	       System.out.println("Cinema Title = " + title);
 
 	   }
+	public void printSpectator() {
+		
+		
+	}
 	
 	public abstract void printInfo();
 }
