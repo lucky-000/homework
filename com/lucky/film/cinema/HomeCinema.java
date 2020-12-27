@@ -1,11 +1,11 @@
 package com.lucky.film.cinema;
 
-import com.lucky.film.coll.Serials;
-
+//import com.lucky.film.coll.Serials;
+import com.lucky.film.coll.Film;
 public class HomeCinema extends Cinema {
 	private String adress;
 	
-	private Serials content;
+	private Film content;
 	
 
 	public HomeCinema() {
@@ -24,8 +24,8 @@ public class HomeCinema extends Cinema {
 	public String getAdress() {
 		return adress;
 	}
-	public Serials addSerials(Serials serial) {
-		this.content=serial;
+	public Film addFilm(Film film) {
+		this.content=film;
 		return this.content;
 	}
 	public void printSpectator() {
@@ -36,8 +36,7 @@ public class HomeCinema extends Cinema {
 		System.out.println("Title cinema = " + getTitle());
 	       System.out.println("URL Online Cinema = " + adress);
 	       System.out.println(this.content.getTitle());
-	       System.out.println(this.content.getNseason());
-	       System.out.println(this.content.getNseries());
+	       System.out.println(this.content.getYear());
 	   }
 	@Override
 	public void printInfo() {

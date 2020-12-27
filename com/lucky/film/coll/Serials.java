@@ -54,6 +54,7 @@ public class Serials implements Film{
 	@Override
 	public void printTitle() {
 		System.out.println("Film title = "+title);
+		 System.out.println("Premiere date = "+year);
 		
 	}
 	

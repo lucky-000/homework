@@ -8,4 +8,16 @@ public class Cartoons implements Film {
 		
 	}
 
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getYear() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
