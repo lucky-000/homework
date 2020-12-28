@@ -1,8 +1,7 @@
 package com.lucky.film.cinema;
 
-//import com.lucky.film.coll.Serials;
 import com.lucky.film.coll.Film;
-public class HomeCinema extends Cinema {
+public final class HomeCinema extends Cinema {
 	private String adress;
 	
 	private Film content;
@@ -32,7 +31,7 @@ public class HomeCinema extends Cinema {
 		System.out.println("family");
 	}
 	
-	public void printFields(){
+	public final void printFields(){
 		System.out.println("Title cinema = " + getTitle());
 	       System.out.println("URL Online Cinema = " + adress);
 	       System.out.println(this.content.getTitle());
