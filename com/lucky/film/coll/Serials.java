@@ -57,5 +57,10 @@ public class Serials implements Film{
 		 System.out.println("Premiere date = "+year);
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Serial:"+ this.title +this.year;
+	}
 	
 }

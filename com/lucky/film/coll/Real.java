@@ -2,33 +2,16 @@ package com.lucky.film.coll;
 
 public class Real extends Featurefilm{
 
-	private String title;
-	private int year;
 	private String event;
 	
 	public Real() {
 		
 	}
 	
-	public Real(String title1, int year1) {
-		title=title1;
-		year=year1;
+	public Real(String title, int year) {
+		super(title,year);
 	}
-//--------------------------------------------	
-	public void setTitle(String title) {
-		this.title=title;
-	}
-	public String getTitle() {
-		return title;
-	}
-//-----------------------------------------	
-	public void setYear(int year) {
-		this.year=year;
-	}
-	public int getYear() {
-		return year;
-	}
-//------------------------------------------	
+
 	public void setEvent(String event) {
 		this.event=event;
 	}
@@ -36,11 +19,9 @@ public class Real extends Featurefilm{
 		return event;
 	}
 	
-//---------------------------------------------
-	   public void printFields(){
-	       System.out.println("Film title = "+title);
-	       System.out.println("Premiere date = "+year);
-	       System.out.println("Based on the event  "+event);
 
-	   }
+
+	public String toString() {
+		return "Real Film:"+ this.getTitle() +this.getYear();
+	}
 }

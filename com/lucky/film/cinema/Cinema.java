@@ -3,7 +3,7 @@ package com.lucky.film.cinema;
 public abstract class Cinema {
 	private String title;
 	public Cinema() {
-		title="";
+		title="default name cinema";
 	}
 	public Cinema(String title) {
 		this.title=title;

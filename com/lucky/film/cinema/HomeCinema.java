@@ -1,18 +1,27 @@
 package com.lucky.film.cinema;
 
 import com.lucky.film.coll.Film;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public final class HomeCinema extends Cinema {
 	private String adress;
 	
-	private Film content;
+
+	List<Film> content;
+	Set<Film> uniqContent;
 	
-
 	public HomeCinema() {
-
+		content = new ArrayList<Film>();
+		uniqContent = new HashSet<Film>();
 	}
 
 	public HomeCinema(String title) {
 		super(title);
+		content = new ArrayList<Film>();
+		uniqContent = new HashSet<Film>();
 
 	}
 
@@ -23,9 +32,13 @@ public final class HomeCinema extends Cinema {
 	public String getAdress() {
 		return adress;
 	}
-	public Film addFilm(Film film) {
-		this.content=film;
-		return this.content;
+	public void addFilm(Film film) {
+		content.add(film);
+
+	}
+	public void addUniqFilm(Film film) {
+		uniqContent.add(film);
+
 	}
 	public void printSpectator() {
 		System.out.println("family");
@@ -34,13 +47,29 @@ public final class HomeCinema extends Cinema {
 	public final void printFields(){
 		System.out.println("Title cinema = " + getTitle());
 	       System.out.println("URL Online Cinema = " + adress);
-	       System.out.println(this.content.getTitle());
-	       System.out.println(this.content.getYear());
+	       
+	       
 	   }
+	public void delFilm(int k) {
+		content.remove(k);
+	}
+	
+	public void copyListToSet() {
+		uniqContent.addAll(content);
+	}
 	@Override
 	public void printInfo() {
-		// TODO Auto-generated method stub
-
+		int a=0;
+		for (Film film :content) {
+			System.out.println(a + "." + film.toString());
+			a++;
+		}
 	}
-
+	public void printInfoHash() {
+		
+		for (Film film :uniqContent) {
+			System.out.println( film.toString());
+			
+		}
+	}
 }

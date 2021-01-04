@@ -1,19 +1,24 @@
 package com.lucky.film.cinema;
 
+
 import com.lucky.film.coll.Movies;
+import java.util.LinkedList;
+import java.util.List;
 
 public class RealCinema extends Cinema {
 	private String adress;
 	private String title;
 	
-	public Movies rolling;
+	List<Movies> rolling;
+	
 	
 	public RealCinema() {
-
+		rolling = new LinkedList<Movies>();
 	}
 
 	public RealCinema(String title) {
 		super(title);
+		rolling = new LinkedList<Movies>();
 
 	}
 	public void setAdress(String adress) {
@@ -29,6 +34,11 @@ public class RealCinema extends Cinema {
 	public String getAdress() {
 		return adress;
 	}
+	
+	public void addMovies(Movies movie) {
+		rolling.add(movie);
+	}
+	
 	public void printSpectator() {
 		System.out.println("_____________");
 		System.out.println("Ñinemagoers ");
@@ -47,21 +57,22 @@ public class RealCinema extends Cinema {
 		
 	}
 	
-	
-	public Movies addRolling(Movies movie) {
-		this.rolling = movie;
-		return this.rolling;
-	}
+
 	
 	public void printFields(){
 		System.out.println("Title cinema = " + title);
 	       System.out.println("URL Online Cinema = " + adress);
-//	       System.out.println( this.rolling.);
+
 
 	   }
+	
+	
 	@Override
 	public void printInfo() {
-		// TODO Auto-generated method stub
+		for (Movies movie :rolling) {
+			System.out.println(movie.toString());
+		}
+
 
 	}
 
