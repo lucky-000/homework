@@ -54,9 +54,7 @@ public final class HomeCinema extends Cinema {
 		content.remove(k);
 	}
 	
-	public void copyListToSet() {
-		uniqContent.addAll(content);
-	}
+	
 	@Override
 	public void printInfo() {
 		int a=0;

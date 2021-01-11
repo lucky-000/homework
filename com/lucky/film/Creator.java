@@ -1,5 +1,8 @@
 package com.lucky.film;
 
+
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.lucky.film.cinema.HomeCinema;
@@ -19,7 +22,7 @@ public final class Creator {
 		
 	}
 	
-	public void addNameYear() {
+	public void addNameYear () throws MyException {
 		HomeCinema cinema = new HomeCinema();
 		Film serial = new Serials();
 		Film movie = new Real();
@@ -30,8 +33,7 @@ public final class Creator {
 			System.out.println("1.Add Serial Title and year");
 			System.out.println("2.Add Film Title and year");
 			System.out.println("3.Delete film or serial");
-			System.out.println("4.Copy ArrayList in HashSet");
-			System.out.println("5.Print ArrayList");
+			System.out.println("4.Print ArrayList");
 			scan = new Scanner(System.in);
 			int b = scan.nextInt();
 			switch(b)
@@ -41,21 +43,38 @@ public final class Creator {
 				System.out.println("Enter name serial");
 				name = new Scanner(System.in);
 				name1 = name.nextLine();
+				
 				System.out.println("Enter start year serial");
-				year = new Scanner(System.in);
-				year1= year.nextInt();
-				serial = new Serials(name1,year1);
-				cinema.addFilm(serial);
+				try {
+					year = new Scanner(System.in);
+					year1= year.nextInt();
+					if(year1!=0) {
+					serial = new Serials(name1,year1);
+					cinema.addFilm(serial);}				
+				} catch(InputMismatchException e)
+				{
+					System.err.println( "error: ");
+					
+				} 
 				break;
 			case 2:
 				System.out.println("Enter name film");
 				name = new Scanner(System.in);
 				name1 = name.nextLine();
 				System.out.println("Enter start year film");
-				year = new Scanner(System.in);
-				year1= year.nextInt();
-				movie = new Real(name1,year1);
-				cinema.addFilm(movie);
+				try {
+					year = new Scanner(System.in);
+					year1= year.nextInt();				
+				} catch (InputMismatchException e) {
+					System.out.println(e.getMessage());
+				}
+				if((year1>0)&(year1<2021)&name1!="") {
+					movie = new Real(name1,year1);
+					cinema.addFilm(movie);
+					}else {
+						throw new MyException("Name and year are incorrect");
+					}
+				
 				break;
 			case 3:
 				cinema.printInfo();
@@ -67,13 +86,8 @@ public final class Creator {
 				break;
 			case 4:
 				cinema.printInfo();
-				cinema.copyListToSet();
-				cinema.printInfoHash();
 				break;
-			case 5:
-				cinema.printInfo();
 
-				break;
 			default:
 				a=false;
 				break;

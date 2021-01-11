@@ -6,7 +6,7 @@ import com.lucky.film.cinema.RealCinema;
 import com.lucky.film.coll.Real;
 import com.lucky.film.coll.Movies;
 public class Executor {
-	public static void main(String[] args) {
+	public static void main(String[] args)  throws MyException{
 
 
 		Creator cr = new Creator();
