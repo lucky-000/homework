@@ -14,8 +14,8 @@ public class Basedon extends Unreal{
 //--------------------------------------------	
 	
 //------------------------------------------	
-	public void setEvent(String event1) {
-		event=event1;
+	public void setEvent(String event) {
+		this.event=event;
 	}
 	public String getEvent() {
 		return event;

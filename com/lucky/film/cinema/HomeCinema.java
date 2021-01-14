@@ -57,10 +57,10 @@ public final class HomeCinema extends Cinema {
 	
 	@Override
 	public void printInfo() {
-		int a=0;
+		int index=0;
 		for (Film film :content) {
-			System.out.println(a + "." + film.toString());
-			a++;
+			System.out.println(index + "." + film.toString());
+			index++;
 		}
 	}
 	public void printInfoHash() {

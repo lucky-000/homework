@@ -10,9 +10,9 @@ public class Serials implements Film{
 		
 	}
 	
-	public Serials(String title1, int year1) {
-		title=title1;
-		year=year1;
+	public Serials(String title, int year) {
+		this.title=title;
+		this.year=year;
 	}
 //--------------------------------------------	
 	public void setTitle(String title) {

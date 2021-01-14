@@ -4,13 +4,15 @@ package com.lucky.film;
 
 import com.lucky.film.cinema.RealCinema;
 import com.lucky.film.coll.Real;
+import com.lucky.film.exception.MyException;
+import com.lucky.film.functional.Creator;
 import com.lucky.film.coll.Movies;
 public class Executor {
 	public static void main(String[] args)  throws MyException{
 
 
-		Creator cr = new Creator();
-		cr.addNameYear();
+		Creator creator = new Creator();
+		creator.addNameYear();
 		
 
 		System.out.println("----------------------------------------");
