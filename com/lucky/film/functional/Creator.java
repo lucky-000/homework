@@ -1,12 +1,8 @@
 package com.lucky.film.functional;
 
-
-
 import java.util.Calendar;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import com.lucky.film.cinema.HomeCinema;
 import com.lucky.film.coll.Film;
 import com.lucky.film.coll.Real;
@@ -14,21 +10,18 @@ import com.lucky.film.coll.Serials;
 import com.lucky.film.exception.MyException;
 
 
-
-
 public final class Creator {
 	
 	private  int year;
 	private  String name;
-
+	HomeCinema cinema = new HomeCinema();
 	
 	public  Creator(){
 		
 	}
 	
-	public void addNameYear () throws MyException {
+	public void addNameYear (String path) throws MyException {
 		boolean menu=true;
-		HomeCinema cinema = new HomeCinema();
 		Film serial = new Serials();
 		Film movie = new Real();
 		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -94,14 +87,15 @@ public final class Creator {
 				menu=false;
 				break;
 				
-			}
-			
-			
+			}	
 		} while(menu);
-		
-		
-		
+
+
+		cinema.writeFilmToFile(path);
 	}
+	
+	
+
 	
 	
 	

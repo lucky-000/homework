@@ -1,6 +1,11 @@
 package com.lucky.film.cinema;
 
 import com.lucky.film.coll.Film;
+import com.lucky.film.utils.WritingToFile;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -62,6 +67,29 @@ public final class HomeCinema extends Cinema {
 			System.out.println(index + "." + film.toString());
 			index++;
 		}
+	}
+	public void writeFile(String path) {
+		
+		try {
+			FileWriter writer = new FileWriter(path);
+		for(Film film : content) {
+
+		writer.write( film.toString() );
+		}
+		writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void writeFilmToFile(String path) {
+		WritingToFile write = new WritingToFile();
+		for(Film film : content) {
+			
+		write.writeToFile("src/com/lucky/film/file.txt",film.toString());
+			}
 	}
 	public void printInfoHash() {
 		
