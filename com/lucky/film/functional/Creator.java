@@ -8,22 +8,25 @@ import com.lucky.film.coll.Film;
 import com.lucky.film.coll.Real;
 import com.lucky.film.coll.Serials;
 import com.lucky.film.exception.MyException;
+import com.lucky.film.utils.ReadingFromFile;
+import com.lucky.film.utils.WriteReadProperties;
 
 
 public final class Creator {
 	
 	private  int year;
-	private  String name;
+	private  String name, keyProperties, valueProperties;
 	HomeCinema cinema = new HomeCinema();
 	
 	public  Creator(){
 		
 	}
 	
-	public void addNameYear (String path) throws MyException {
+	public void addNameYear (String pathTxt, String pathProperties) throws MyException {
 		boolean menu=true;
 		Film serial = new Serials();
 		Film movie = new Real();
+		WriteReadProperties properties =new WriteReadProperties();
 		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
 		
 		
@@ -34,6 +37,10 @@ public final class Creator {
 			System.out.println("2.Add Film Title and year");
 			System.out.println("3.Delete film or serial");
 			System.out.println("4.Print ArrayList");
+			System.out.println("5.Add ListToFile");
+			System.out.println("6.Read From File");
+			System.out.println("7.Add Properties");
+			System.out.println("8.Read Properties");
 			Scanner scaner = new Scanner(System.in);
 			Scanner scanner = new Scanner(System.in);
 			int choice = scaner.nextInt();
@@ -82,7 +89,25 @@ public final class Creator {
 			case 4:
 				cinema.printInfo();
 				break;
-
+			case 5:
+				cinema.writeFilmToFile(pathTxt);
+				break;				
+			case 6:
+				ReadingFromFile readFile = new ReadingFromFile();
+				System.out.println(readFile.readFromFile(pathTxt));	
+				break;
+			case 7:
+				System.out.println("Write Key and Value Properties");
+				keyProperties = scanner.nextLine();
+				valueProperties = scanner.nextLine();
+				properties.setPropertiesPlus(pathProperties, keyProperties, valueProperties);
+				break;
+			case 8:
+				System.out.println("Print Key Properties");
+				keyProperties = scanner.nextLine();
+				String printPass = properties.getProperties(pathProperties, keyProperties);
+				System.out.println(keyProperties +":" + printPass);
+				break;
 			default:
 				menu=false;
 				break;
@@ -91,7 +116,7 @@ public final class Creator {
 		} while(menu);
 
 
-		cinema.writeFilmToFile(path);
+		
 	}
 	
 	
